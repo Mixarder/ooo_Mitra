@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "8789859b-a148-4700-a0e8-6d295c2e6cf5",
+		"name": "GOREST",
+		"description": "Эта коллекция создана Тарасенко Михаилом, для тестового задания компании ооо Митра.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25953064"
+	},
+	"item": [
+		{
+			"name": "w -curl Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Users 12",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users?page=12",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Empty_Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var JsonDate = pm.response.json();",
+							"pm.environment.set(\"userId\", JsonDate.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"{{$randomFullName}}\",\n    \"gender\": \"male\",\n    \"email\": \"{{$randomEmail}}\",\n    \"status\": \"active\"\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "about new user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/{{userId}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Many_Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var JsonDate = pm.response.json();",
+							"//pm.environment.set(\"userId\", JsonDate.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Steve Jobs\",\n    \"gender\": \"male\",\n    \"email\": \"{{$randomEmail}}\",\n    \"status\": \"active\"\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "about_Steve_Jobs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/?name=Steve Jobs",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Steve Jobs"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change_name_Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var JsonDate = pm.response.json();",
+							"//pm.environment.set(\"userId\", JsonDate.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Tim CooK\",\n    \"email\": \"Tim@apple.com\"\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/5503",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"5503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check_change_name_email",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/5503",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"5503"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch_status_Email",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//var JsonDate = pm.response.json();",
+							"//pm.environment.set(\"userId\", JsonDate.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Steve@apple.com\",\n    \"status\": \"Inactive\"\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/5497",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"5497"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check_change_status_email",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/5497",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"5497"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL_new_User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/4710",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"4710"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DEL_Steve_Jobs",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/5480",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						"5480"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check_DEL_Steve_Jobs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf"
+					}
+				],
+				"url": {
+					"raw": "https://gorest.co.in/public-api/users/?name=Steve Jobs",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public-api",
+						"users",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Steve Jobs"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "eb756037e453c9c715986ed90461c5e829968163c4e7fb942f4ff9e074d9fcaf",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
